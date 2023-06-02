@@ -23,7 +23,7 @@ public class OrderRepository {
         return em.find(Order.class, orderId);
     }
 
-    public List<Order> findAll(OrderSearch orderSearch) {
+    public List<Order> findAllByString(OrderSearch orderSearch) {
         return em.createQuery("select o from Order o join o.member m" +
                         " where o.status =:status" +
                         " and m.username like :name", Order.class)
